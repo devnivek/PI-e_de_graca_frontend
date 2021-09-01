@@ -6,6 +6,7 @@
   
         <div class="form-group mt-5">
           <input
+            [(ngModel)]='usuario.nome'
             type="text"
             name="nome"
             id="nome"
@@ -17,6 +18,7 @@
   
         <div class="form-group">
           <input
+          [(ngModel)]='usuario.email'
             type="email"
             name="email"
             id="email"
@@ -28,6 +30,7 @@
   
         <div class="form-group">
           <input
+          (input)='confirmaSenha($event)'
             type="password"
             name="senha"
             id="senha"
@@ -39,6 +42,7 @@
   
         <div class="form-group">
           <input
+          [(ngModel)]='usuario.senha'
             type="password"
             name="senha"
             id="senha"
@@ -51,18 +55,18 @@
         <div class="form-group">
           <label for="tipo">Tipo de usuário: </label>
           <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-              <label class="btn btn-warning active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Pessoa
+              <label class="btn btn-warning">
+                <input (click)='tipoUsuario($event)' value="false" type="radio" name="options" id="option1" autocomplete="off"> Pessoa
               </label>
               <label class="btn btn-warning">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Empresa
+                <input (click)='tipoUsuario($event)' value="true" type="radio" name="options" id="option2" autocomplete="off"> Empresa
               </label>
             </div>
       </div>
         <hr class="m-4">
         <div class="d-flex justify-content-center">
           <button class="btn btn-danger mr-4" type="submit" routerLink="/login">Cancelar</button>
-          <button class="btn btn-success" type="submit">Cadastrar</button>
+          <button (click)='cadastrar()' class="btn btn-success" type="submit">Cadastrar</button>
   
         </div>
       </div>

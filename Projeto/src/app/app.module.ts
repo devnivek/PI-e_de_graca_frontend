@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { LogarComponent } from './logar/logar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { FormsModule } from '@angular/forms';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { SobreComponent } from './sobre/sobre.component';
     RodapeComponent,
     LogarComponent,
     CadastrarComponent,
-    SobreComponent
+    SobreComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
