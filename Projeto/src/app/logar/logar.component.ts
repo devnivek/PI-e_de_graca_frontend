@@ -1,8 +1,8 @@
+import { environment } from './../../environments/environment.prod';
+import { AuthService } from './../service/auth.service';
+import { UsuarioLogin } from './../model/UsuarioLogin';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
-import { UsuarioLogin } from '../model/UsuarioLogin';
-import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-logar',
@@ -10,7 +10,6 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./logar.component.css']
 })
 export class LogarComponent implements OnInit {
-
   usuarioLogin: UsuarioLogin = new UsuarioLogin
 
   constructor(
@@ -22,7 +21,7 @@ export class LogarComponent implements OnInit {
     window.scroll(0,0)
   }
 
-  logar() {
+  logar(){
     this.authService.logar(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
       this.usuarioLogin = resp
 
@@ -36,7 +35,7 @@ export class LogarComponent implements OnInit {
       this.router.navigate(['/inicio'])
     }, erro => {
       if (erro.status == 500){
-        alert("Senha e/ou email incorretos")
+        alert("Senha e/ou e-mail estão incorretos")
       }
     })
   }

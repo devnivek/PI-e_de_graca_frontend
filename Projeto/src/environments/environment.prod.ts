@@ -6,5 +6,4 @@ export const environment = {
   nome: '',
   senha: '',
   empresa: false
-
 };

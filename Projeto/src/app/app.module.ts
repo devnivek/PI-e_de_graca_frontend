@@ -8,9 +8,18 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { LogarComponent } from './logar/logar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
-import { SobreComponent } from './sobre/sobre.component';
+import { Menu2Component } from './menu2/menu2.component';
+import { ModalPostComponent } from './modal-post/modal-post.component';
 import { FormsModule } from '@angular/forms';
 import { InicioComponent } from './inicio/inicio.component';
+import { MeusPostsComponent } from './meus-posts/meus-posts.component';
+import { ConfiguracaoComponent } from './configuracao/configuracao.component';
+import { SobreComponent } from './sobre/sobre.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { TemaComponent } from './tema/tema.component';
+import { NovoTemaComponent } from './novo-tema/novo-tema.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +28,16 @@ import { InicioComponent } from './inicio/inicio.component';
     RodapeComponent,
     LogarComponent,
     CadastrarComponent,
+    Menu2Component,
+    ModalPostComponent,
+    InicioComponent,
+    MeusPostsComponent,
+    ConfiguracaoComponent,
     SobreComponent,
-    InicioComponent
+    TemaComponent,
+    NovoTemaComponent,
+    TemaEditComponent,
+    TemaDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +45,10 @@ import { InicioComponent } from './inicio/inicio.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

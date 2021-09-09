@@ -1,7 +1,7 @@
+import { AuthService } from './../service/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Usuario } from '../model/Usuario';
-import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar',
@@ -9,9 +9,9 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
-
   confirmarSenha: string
-  tipoUser: boolean
+  tipoUser: true
+
   usuario: Usuario = new Usuario
 
   constructor(
@@ -23,11 +23,11 @@ export class CadastrarComponent implements OnInit {
     window.scroll(0,0)
   }
 
-  confirmaSenha(event: any) {
+  confirmaSenha(event: any){
     this.confirmarSenha = event.target.value
   }
 
-  tipoUsuario(event: any) {
+  tipoUsuario(event: any){
     this.tipoUser = event.target.value
   }
 
