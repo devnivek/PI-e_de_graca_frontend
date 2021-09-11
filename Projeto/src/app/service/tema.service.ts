@@ -16,26 +16,32 @@ export class TemaService {
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
+  
+  // token = {
+  //   headers: new HttpHeaders().set('Authorization', localStorage.getItem('token') || '')
+  // }
 
   getAllTema(): Observable <Tema []>{
-    return this.http.get<Tema[]>('https://edegraca.herokuapp.com/temas', this.token)
+    return this.http.get<Tema[]>('https://ehdegraca.herokuapp.com/tema', this.token)
   }
 
   postTema(tema: Tema) : Observable <Tema>{
-    return this.http.post<Tema>('https://edegraca.herokuapp.com/temas', tema, this.token)
+    return this.http.post<Tema>('https://ehdegraca.herokuapp.com/tema', tema, this.token)
   }
 
   getByIdTema(id: number): Observable<Tema>{
-    return this.http.get<Tema>(`https://edegraca.herokuapp.com/temas/${id}`, this.token)
+    return this.http.get<Tema>(`https://ehdegraca.herokuapp.com/tema/${id}`, this.token)
   }
 
   putTema(tema: Tema): Observable<Tema>{
-    return this.http.put<Tema>('https://edegraca.herokuapp.com/temas', tema, this.token)
+    return this.http.put<Tema>('https://ehdegraca.herokuapp.com/tema', tema, this.token)
   }
 
   deleteTema(id: number){
-    return this.http.delete(`https://edegraca.herokuapp.com/temas/${id}`, this.token)
+    return this.http.delete(`https://ehdegraca.herokuapp.com/tema/${id}`, this.token)
   }
 
-
+  getByTituloTema(titulo: string): Observable<Tema []>{
+    return this.http.get<Tema[]>(`https://ehdegraca.herokuapp.com/tema/titulo/${titulo}`, this.token)
+  }
 }

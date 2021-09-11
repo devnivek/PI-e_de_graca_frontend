@@ -1,3 +1,4 @@
+import { AlertsService } from './../service/alerts.service';
 import { environment } from './../../environments/environment.prod';
 import { AuthService } from './../service/auth.service';
 import { UsuarioLogin } from './../model/UsuarioLogin';
@@ -14,11 +15,15 @@ export class LogarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private alert: AlertsService
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
+    if(environment.token == ''){
+      this.router.navigate(['/login'])
+    }
   }
 
   logar(){
@@ -32,10 +37,10 @@ export class LogarComponent implements OnInit {
       environment.id = this.usuarioLogin.id
       environment.senha = this.usuarioLogin.senha
 
-      this.router.navigate(['/inicio'])
+      this.router.navigate(['/tema'])
     }, erro => {
       if (erro.status == 500){
-        alert("Senha e/ou e-mail estão incorretos")
+        this.alert.alertDanger("Senha e/ou e-mail estão incorretos.")
       }
     })
   }
