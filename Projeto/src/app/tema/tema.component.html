@@ -1,6 +1,49 @@
-<div class="container mb-5 mt-5" id="postagens">
+    <section id="destaques" class="">
+        <!-- Page section example for content below the video header -->
+        <div class="row p-0 m-0 mt-5">
+            <div class="d-flex col-md-6 justify-content-center container">
+    
+                <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img  src="https://i.imgur.com/8qvK9N0.jpg" alt="..." style="border-radius: 6px; width: 100vh; height: 350px; object-fit: cover;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 style="text-shadow: black 0.1em 0.1em 0.2em">Postagens em destaque</h5>
+                            </div>
+                        </div>
 
-    <ul class="nav d-flex justify-content-center nav-pills mb-3" id="pills-tab" role="tablist">
+                        <div class="carousel-item" *ngFor='let item of listaPosts'>
+                            <img  src="{{item.midia}}" alt="..." style="border-radius: 6px; width: 100vh; height: 350px; object-fit: cover;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 style="text-shadow: black 0.1em 0.1em 0.2em">{{item.titulo}}</h5>
+                                <p style="text-shadow: black 0.1em 0.1em 0.2em">{{item.tema.titulo}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+    <div class="container" id="postagens">
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 mb-5">
+                <a class="btn btn-outline-light d-block w-100" style="border-top: hidden; border-top-right-radius: 0px; border-top-left-radius: 0px;" href="#pills-tab"><i class="fa fa-chevron-down"
+                        aria-hidden="true"></i> VISUALIZAR TODAS POSTAGENS</a>
+            </div>
+        </div>    
+
+    <ul class="nav d-flex justify-content-center nav-pills mb-3 tema-mob" id="pills-tab" role="tablist">
 
         <!-- menu de temas  -->
         <li class="nav-item">
@@ -69,17 +112,16 @@
     </ul>
 
     <!-- Pesquisa -->
-    <div class="row d-flex justify-content-center">
+    <div id="posts" class="row d-flex justify-content-center">
         <div class="col-md-6 mt-4">
             <form class="pesquisa">
                 <div class="input-group">
                     <span class="input-group-addon">
                         <button disabled class="fa fa-search mt-1 mr-1" style="font-size: 26px; background:transparent;border:none"></button>
-                      </span>
+                    </span>
                 <input [(ngModel)]='tituloPost' name="pesquisa" class="form-control d-flex justify-content-center"
                     type="text" placeholder="Pesquise por palavras-chave" aria-label="Search" id="pesquisa"
                     (keyup)='findByTitulo()'>
-                    
                 </div>
             </form>
         </div>
@@ -134,7 +176,7 @@
                                 </p>
                                 <!-- Botoes-->
 
-                            
+
                                 <!-- texto da postagem -->
                                 <p class="card-text">{{item.descricao}}</p>
                                 <a *ngIf='authService.adm()' [routerLink]="['/post-delete', item.id]"
@@ -187,7 +229,7 @@
                                 </p>
                                 <!-- Botoes-->
 
-                            
+
                                 <!-- texto da postagem -->
                                 <p class="card-text">{{item.descricao}}</p>
                                 <a *ngIf='authService.adm()' [routerLink]="['/post-delete', item.id]"
@@ -238,7 +280,7 @@
                                 </p>
                                 <!-- Botoes-->
 
-                            
+
                                 <!-- texto da postagem -->
                                 <p class="card-text">{{item.descricao}}</p>
                                 <a *ngIf='authService.adm()' [routerLink]="['/post-delete', item.id]"
@@ -289,7 +331,7 @@
                                 </p>
                                 <!-- Botoes-->
 
-                            
+
                                 <!-- texto da postagem -->
                                 <p class="card-text">{{item.descricao}}</p>
                                 <a *ngIf='authService.adm()' [routerLink]="['/post-delete', item.id]"
@@ -341,7 +383,7 @@
                                 </p>
                                 <!-- Botoes-->
 
-                            
+
                                 <!-- texto da postagem -->
                                 <p class="card-text">{{item.descricao}}</p>
                                 <a *ngIf='authService.adm()' [routerLink]="['/post-delete', item.id]"
@@ -393,7 +435,7 @@
                                 </p>
                                 <!-- Botoes-->
 
-                            
+
                                 <!-- texto da postagem -->
                                 <p class="card-text">{{item.descricao}}</p>
                                 <a *ngIf='authService.adm()' [routerLink]="['/post-delete', item.id]"

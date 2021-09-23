@@ -147,3 +147,20 @@ a{
 .backside .card .card-title {
   color: #BF0603 !important;
 }
+
+@media (max-width: 800px) {
+  .img-edg img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .cont-mob{
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .t-mob{
+    text-align: center;
+  }
+}
